@@ -10,17 +10,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-// const PeopleDate = new People[9];
-// var Anton = new People(1, "Anton Voloshyn", "men", 29);
-// var Dasha = new People(2, "Dasha Voloshyn", "women", 17);
-// var Sofia = new People(3, "Sofia Voloshyn", "men", 29);
-// var Lena = new People(4, "Lena Voloshyn", "men", 29);
-// var Marina = new People(5, "Marina Voloshyn", "men", 29);
-// var Natasha = new People(6, "Natasha Voloshyn", "men", 29);
-// var Sasha = new People(7, "Sasha Voloshyn", "men", 29);
-// var Tessa = new People(8, "Tessa Voloshyn", "men", 29);
-// var Nensi = new People(9, "Nensi Voloshyn", "men", 29);
-
 const DATA = [
   {
     id: "1",

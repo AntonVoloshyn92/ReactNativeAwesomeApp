@@ -7,24 +7,26 @@ function ModalScreen() {
   return (
     <View style={styles.workSpace}>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
-        <View style={styles.modalStyle}>
-          <Text style={styles.textStyle}>Ты красавчик?</Text>
-          <View style={styles.button}>
-            <Button
-              title="Да"
-              onPress={() => {
-                Alert.alert("Поздравляю, ты красавчик"),
-                  setModalVisible(!modalVisible);
-              }}
-            />
+        <View style={styles.modalParent}>
+          <View style={styles.modalStyle}>
+            <Text style={styles.textStyle}>Ты красавчик?</Text>
+            <View style={styles.button}>
+              <Button
+                title="Да"
+                onPress={() => {
+                  Alert.alert("Поздравляю, ты красавчик"),
+                    setModalVisible(!modalVisible);
+                }}
+              />
 
-            <Button
-              title="Нет"
-              onPress={() => {
-                Alert.alert("Сожалею, ты не красавчик"),
-                  setModalVisible(!modalVisible);
-              }}
-            />
+              <Button
+                title="Нет"
+                onPress={() => {
+                  Alert.alert("Сожалею, ты не красавчик"),
+                    setModalVisible(!modalVisible);
+                }}
+              />
+            </View>
           </View>
         </View>
       </Modal>
@@ -35,6 +37,12 @@ function ModalScreen() {
 
 const styles = StyleSheet.create({
   workSpace: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  modalParent: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
