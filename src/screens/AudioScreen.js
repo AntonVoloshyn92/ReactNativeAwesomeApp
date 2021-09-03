@@ -33,10 +33,10 @@ export default function AudioScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.containerButton}>
-        <Button title="Play Sound" onPress={playSound} />
+        <Button title="Play" onPress={playSound} />
       </View>
       <View style={styles.containerButton}>
-        <Button title="Stop Sound" onPress={stopSound} />
+        <Button title="Stop" onPress={stopSound} />
       </View>
     </View>
   );
@@ -44,14 +44,17 @@ export default function AudioScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex:1,
     justifyContent: "center",
     alignItems: "center",
   },
 
   containerButton: {
+    elevation: 10,
+    marginBottom:10,
+    width:"50%",
     justifyContent: "center",
-    backgroundColor: "#ecf0f1",
-    padding: 10,
+    backgroundColor: "cornsilk",
+    borderRadius:15,
   },
 });

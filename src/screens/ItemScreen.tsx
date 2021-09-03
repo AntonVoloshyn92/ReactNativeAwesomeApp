@@ -8,6 +8,7 @@ import {
   FlatList,
   Alert,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 
 const DATA = [
@@ -71,6 +72,7 @@ const DATA = [
     age: "8",
   },
 ];
+
 
 const Item = ({ title }: { title: any }) => (
   <TouchableOpacity onPress={() => Alert.alert(title)}>

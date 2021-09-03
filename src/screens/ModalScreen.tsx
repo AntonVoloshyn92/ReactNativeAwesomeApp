@@ -22,7 +22,7 @@ function ModalScreen() {
               <Button
                 title="Нет"
                 onPress={() => {
-                  Alert.alert("Сожалею, ты не красавчик"),
+                  // Alert.alert("Сожалею, ты не красавчик"),
                     setModalVisible(!modalVisible);
                 }}
               />
