@@ -22,7 +22,7 @@ const Item = ({ title }: { title: any }) => (
 );
 
 function ItemScreen() {
-  const [newsDate, setNewsDate] = useState([]);
+  const [newsDate, setNewsDate] = useState<Articles[]>([]);
   useEffect(() => {
     axios
       .get<Articles>(
@@ -33,10 +33,10 @@ function ItemScreen() {
       });
   }, []);
 
-  console.log("NewsDate: ", newsDate);
-  console.log("NewsLegth: ", newsDate.length);
+  // console.log("NewsDate: ", newsDate);
+  // console.log("NewsLegth: ", newsDate.length);
 
-  const renderItem = ({ item }: { item: any }) => <Item title={item.title} />;
+  // const renderItem = ({ item }: { item: any }) => <Item title={item.title} />;
 
   return (
     // <SafeAreaView style={styles.container}>
@@ -48,7 +48,7 @@ function ItemScreen() {
     // </SafeAreaView>
     <SafeAreaView>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>{newsDate[0].title}</Text>
+        <Text>Hello my</Text>
       </View>
     </SafeAreaView>
   );
@@ -72,65 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const DATA = [
-  {
-    id: "1",
-    title: "Anton Voloshyn",
-    sex: "men",
-    age: "29",
-  },
-  {
-    id: "2",
-    title: "Dasha Voloshyn",
-    sex: "women",
-    age: "17",
-  },
-  {
-    id: "3",
-    title: "Sofia Voloshyn",
-    sex: "women",
-    age: "17",
-  },
-
-  {
-    id: "4",
-    title: "Lena Voloshyn",
-    sex: "women",
-    age: "43",
-  },
-
-  {
-    id: "5",
-    title: "Marina Voloshyn",
-    sex: "women",
-    age: "26",
-  },
-
-  {
-    id: "6",
-    title: "Natasha Voloshyn",
-    sex: "women",
-    age: "34",
-  },
-
-  {
-    id: "7",
-    title: "Sasha Voloshyn",
-    sex: "men",
-    age: "53",
-  },
-
-  {
-    id: "8",
-    title: "Tessa Voloshyn",
-    sex: "women",
-    age: "2",
-  },
-  {
-    id: "9",
-    title: "Nensi Voloshyn",
-    sex: "women",
-    age: "8",
-  },
-];
 export default ItemScreen;
