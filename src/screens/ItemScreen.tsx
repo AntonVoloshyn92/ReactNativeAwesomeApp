@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useCallback } from "react";
 import {
   Text,
   View,
@@ -12,45 +12,33 @@ import {
 } from "react-native";
 import { Articles } from "../interfaces/NewsInterface";
 import axios, { AxiosResponse } from "axios";
-
-const Item = ({ title }: { title: any }) => (
-  <TouchableOpacity onPress={() => Alert.alert(title)}>
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  </TouchableOpacity>
-);
+import NewsCard from "../components/NewsCard";
+import { axiosInstance } from "../interfaces/AxiosInterface";
+import NewsService from "../services/NewsService";
 
 function ItemScreen() {
   const [newsDate, setNewsDate] = useState<Articles[]>([]);
-  useEffect(() => {
-    axios
-      .get<Articles>(
-        "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=ca9dbb585bf54ea6a04a51bc7b48b2df"
-      )
-      .then((response: AxiosResponse) => {
-        setNewsDate(response.data);
-      });
+
+  const fetchNewsCallback = useCallback(async (queryString: string) => {
+    const { response, newsRequests } = await NewsService.getNewsDate(
+      queryString,
+      "us",
+      "business"
+    );
+
+    setNewsDate(response);
   }, []);
 
-  // console.log("NewsDate: ", newsDate);
-  // console.log("NewsLegth: ", newsDate.length);
+  const query = "https://newsapi.org/v2/top-headlines";
 
-  // const renderItem = ({ item }: { item: any }) => <Item title={item.title} />;
+  useEffect(() => {
+    fetchNewsCallback(query);
+  }, [fetchNewsCallback, query]);
 
   return (
-    // <SafeAreaView style={styles.container}>
-    //   <FlatList
-    //     data={newsDate}
-    //     renderItem={renderItem}
-    //     keyExtractor={(item) => item.source.id}
-    //   />
-    // </SafeAreaView>
-    <SafeAreaView>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello my</Text>
-      </View>
-    </SafeAreaView>
+    <View>
+      <NewsCard></NewsCard>
+    </View>
   );
 }
 
