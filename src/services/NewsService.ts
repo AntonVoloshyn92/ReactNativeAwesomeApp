@@ -13,9 +13,9 @@ class NewsService {
     countryCode: string,
     category: string
   ) {
-    const url = `${this.NEWS_API}?`;
+    const url = `${this.NEWS_API}?country=${countryCode}&category=${category}&apiKey=ca9dbb585bf54ea6a04a51bc7b48b2df`;
     try {
-      const response = await this.asios.get<Articles>(this.url);
+      const response = await this.asios.get<Articles>(url);
       if (response.data) {
         return { response: response.data };
       }
@@ -25,4 +25,7 @@ class NewsService {
   }
 }
 
-export default new NewsService("https://newsapi.org/v2/", axiosInstance);
+export default new NewsService(
+  "https://newsapi.org/v2/top-headlines",
+  axiosInstance
+);
