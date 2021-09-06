@@ -20,7 +20,7 @@ function ItemScreen() {
   const [newsDate, setNewsDate] = useState<Articles[]>([]);
 
   const fetchNewsCallback = useCallback(async (queryString: string) => {
-    const { response, newsRequests } = await NewsService.getNewsDate(
+    const response = await NewsService.getNewsDate(
       queryString,
       "us",
       "business"
